@@ -24,10 +24,10 @@ export function toSvgString(vl: VectorLayer, width?: number, height?: number) {
   rootNode.setAttributeNS(undefined, 'viewBox', `0 0 ${vl.width} ${vl.height}`);
   vectorLayerToSvgNode(vl, rootNode, xmlDoc);
   if (width !== undefined) {
-    rootNode.setAttributeNS(undefined, 'width', width.toString() + 'px');
+    rootNode.setAttributeNS(undefined, 'width', width.toString());
   }
   if (height !== undefined) {
-    rootNode.setAttributeNS(undefined, 'height', height.toString() + 'px');
+    rootNode.setAttributeNS(undefined, 'height', height.toString());
   }
   return serializeXmlNode(rootNode);
 }
