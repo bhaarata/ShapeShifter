@@ -1,6 +1,14 @@
 import { bugsnagClient } from 'app/modules/editor/scripts/bugsnag';
 import * as tinycolor from 'tinycolor2';
 
+//BHAARATA: my code
+declare namespace ColorFormats
+{
+	interface RGB {r: number; g: number; b: number}
+	interface RGBA extends RGB {a: number}
+}
+//BHAARATA: end of my code
+
 export function parseAndroidColor(val: string): ColorFormats.RGBA | undefined {
   if (typeof val !== 'string') {
     bugsnagClient.notify(new TypeError(`Argument has incorrect type (${typeof val}): ` + val), {
