@@ -1,5 +1,13 @@
 import { ColorUtil } from '.';
 
+//BHAARATA: my code
+declare namespace ColorFormats
+{
+	interface RGB {r: number; g: number; b: number}
+	interface RGBA extends RGB {a: number}
+}
+//BHAARATA: end of my code
+  
 describe('ColorUtil', () => {
   const TESTS_ANDROID_RAW = [
     ['#f000', { r: 0, g: 0, b: 0, a: 255 } as ColorFormats.RGBA, '#000000'],
