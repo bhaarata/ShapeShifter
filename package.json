@@ -10,7 +10,7 @@
   "private": true,
   "scripts": {
     "ng": "node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng",
-    "start": "ng serve",
+    "start": "webpack",
     "start-beta": "ng serve -c development-beta",
     "build": "node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng build -c production",
     "build-beta": "node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng build -c production-beta",
