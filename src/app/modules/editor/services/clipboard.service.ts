@@ -10,6 +10,13 @@ import { PlaybackService } from './playback.service';
 
 declare const ga: Function;
 
+//BHAARATA: my code
+interface JqEvent extends JQuery.Event
+{
+	originalEvent?: ClipboardEvent;
+}
+//BHAARATA: end of my code
+
 @Injectable({ providedIn: 'root' })
 export class ClipboardService {
   constructor(
@@ -28,7 +35,8 @@ export class ClipboardService {
       if (!blocks.length) {
         return false;
       }
-      const clipboardData = (event.originalEvent as ClipboardEvent).clipboardData;
+      //const clipboardData = (event.originalEvent as ClipboardEvent).clipboardData;
+      const clipboardData = (<JqEvent>event).originalEvent.clipboardData; //BHAARATA: my code
       clipboardData.setData('text/plain', JSON.stringify({ blocks }, undefined, 2));
 
       if (shouldCut) {
@@ -50,7 +58,8 @@ export class ClipboardService {
         return true;
       }
 
-      const clipboardData = (event.originalEvent as ClipboardEvent).clipboardData;
+      //const clipboardData = (event.originalEvent as ClipboardEvent).clipboardData;
+      const clipboardData = (<JqEvent>event).originalEvent.clipboardData; //BHAARATA: my code
       const str = clipboardData.getData('text');
       const existingVl = this.layerTimelineService.getVectorLayer();
 
